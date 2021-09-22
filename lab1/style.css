@@ -1,0 +1,20 @@
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form, .output {
+    width: 400px;
+    padding: 5px;
+    background-color: rgb(219, 201, 201);
+}
+    label {
+        display: inline-block;
+        width: 100px;
+    }
+    input {
+        width: 150px;
+    }
+.output {
+    background-color: rgb(192, 186, 186);
+}

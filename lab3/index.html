@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab3</title>
+    <script src="angularJs.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl" class="app">
+        <form action="">
+            <h2>Заполните форму:</h2>
+            
+            <label for="fName">Имя: </label>
+            <input type="text" id="fName" placeholder="Имя" ng-model="fName" required><br>
+
+            <label for="sName">Фамилия: </label>
+            <input type="text" id="sName" placeholder="Фамилия" ng-model="sName" required><br>
+
+            <label for="patr">Отчество: </label>
+            <input type="text" id="patr" placeholder="Отчество" ng-model="patr" required><br>
+
+            <label for="bd">Дата рождения: </label>
+            <input type="date" id="date" ng-model="bd.value">
+
+            <h3>Ваш пол: </h3>
+
+            <div ng-repeat = "sub in ent">
+                <label for="{{sub.idName}}">{{sub.name}}</label>
+                <input type="checkbox" id="{{sub.idName}}" ng-model="sub.checked" ng-click="updSelection($index, ent)">
+                <br>
+            </div>
+
+            <h3>Ваше образование: </h3>
+
+            <div class="radio">
+                <label for="ed1">среднее</label>
+                <input type="radio" name="education" id="ed1" checked><br>
+
+                <label for="ed2">неоконченное высшее</label>
+                <input type="radio" name="education" id="ed2"><br>
+
+                <label for="ed3">высшее</label>
+                <input type="radio" name="education" id="ed3">
+            </div>
+
+            <h3>На какую вакансию претендуете: </h3>
+            <select>
+                <!-- <option value="Junior HTML/CSS Developer" selected>Junior HTML/CSS Developer</option>
+                <option value="Junior PHP Developer">Junior PHP Developer</option>
+                <option value="Junior C++ Developer">Junior C++ Developer</option>
+                <option value="Middle C++ Developer">Middle C++ Developer</option> -->
+                <option value="{{v.name}}" ng-repeat="v in vacancies | orderBy:'salary'" >{{v.name + " - " + v.salary + "MDL"}}</option>
+            </select>
+
+            <h3>Желаемая зарплата: </h3>
+            <div class="salary">
+                <input type="number" id="salary" ng-model="salary" placeholder="Желаемая ЗП">MDL
+            </div><br>
+
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</body>
+</html>

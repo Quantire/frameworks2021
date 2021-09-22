@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angularJs.js"></script>
+    <script src="studentForm.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <div ng-app="studentApp" ng-controller="stdCntrl">
+            <form action="">
+                <label for="f_name">Фамилия: </label>
+                <input type="text" id="f_name" ng-model="firstName"><br>
+        
+                <label for="s_name">Имя: </label>
+                <input type="text" id="s_name" ng-model="secName"><br>
+        
+                <label for="patron">Отчество: </label>
+                <input type="text" id="patron" ng-model="patron"><br>
+        
+                <label for="bday">Дата рождения: </label>
+                <input type="date" id="bday" ng-model="bday.value"><br>
+        
+                <label for="grade">Оценка: </label>
+                <input type="number" id="grade" ng-model="grade"><br>
+        
+                <label for="stipend">Стипендия: </label>
+                <input type="number" id="stipend" ng-model="stipend"> <span class = "okon">лей</span>
+                
+            </form><br>
+            <h2>Данные студента: </h2>
+            <div class="output">
+                Имя: {{ firstName }}<br>
+                Фамилия: {{ secName }}<br>
+                Отчество: {{ patron }}<br>
+                Дата рождения: {{bday.value | date:'medium'}}<br>
+                Оценка: {{ grade }}<br>
+                Стипендия: {{ stipend }}<br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

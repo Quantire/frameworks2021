@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab2</title>
+    <script src="angularJs.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <div ng-app="workApp" ng-controller="workCtrl">
+            <h2>Заполните форму:</h2>
+            <form action="">
+                <label for="f_name">Фамилия: </label>
+                <input type="text" id="f_name" ng-model="firstName" placeholder="Ваша Фамилия"><br>
+        
+                <label for="s_name">Имя: </label>
+                <input type="text" id="s_name" ng-model="secName" placeholder="Ваше имя"><br>
+
+                <label for="salary">Желаемая зарплата: </label>
+                <input type="number" id="salary" ng-model="salary" placeholder="желаемая зп">MDL<br>
+
+                <label for="vacancies">Вакансии: </label><br>
+                <input type="search" id="vacancies" ng-model="search" placeholder="желаемая зарплата/вакансия">
+            </form>
+            <h2>Ваши данные:</h2>
+            Имя: {{ firstName }}<br>
+            Фамилия: {{ secName }}<br>
+            Желаемая зарплата: {{ salary | currency:"MDL"}}<br><br>
+            <h2>Должности, подходящие вашему запросу:</h2>
+            <ul>
+                <li ng-repeat="x in vacancies | filter:search | orderBy:salary">
+                    {{ x.name + ", " + x.salary + "MDL"}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
