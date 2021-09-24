@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab3 t2</title>
+    <script src="angularJs.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div ng-app="studApp" ng-controller="studCtrl">
+
+    <h2>Добавить студента</h2>
+    
+    <form>
+        <input type="text" ng-model="sName" name="sName" placeholder="Фамилия"><br>
+        <input type="text" ng-model="fName" name="fName" placeholder="Имя"><br>
+        <input type="text" ng-model="patr" name="patr" placeholder="Отчество"><br>
+        <input type="number" ng-model="note" name="note" placeholder="Оценка"><br>
+        <input type="button" value="Добавить студента" ng-click="studAdd()">
+    </form>
+    
+    <br>
+    <h2>Список студентов</h2>
+    <table border="1">
+        <tr>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Оценка</th>
+            <th>Удалить</th>
+        </tr>
+        <tr ng-repeat="x in studList">
+            <td>{{x.sName}}</td>
+            <td>{{x.fName}}</td>
+            <td>{{x.patr}}</td>
+            <td>{{x.note}}</td>
+            <td><input type="checkbox" ng-model="x.rem" ng-if="x.note &#60; 5"><input type="checkbox" ng-model="x.rem" ng-if="x.note &#62; 5" ng-disabled="x.note &#62; 4"></td>
+        </tr>
+    </table>
+    
+    <p><button ng-click="studRemove()">Удалить выбранных студентов</button></p>
+
+    </div>
+    </body>
+</html>

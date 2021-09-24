@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab3 t1</title>
+    <script src="angularJs.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl" class="app">
+        <form action="" method="post" ng-model="myForm" name="myForm">
+            <h2>Заполните форму:</h2>
+            <div>
+                <label for="fName">Ваше имя: </label>
+                <input type="text" id="fName" placeholder="Имя" ng-model="myForm.fName" name="myForm.fName" required>
+                <span style="color:red;">*</span>
+            </div><br>
+
+            <div>
+                <label for="sName">Ваша фамилия: </label>
+                <input type="text" id="sName" placeholder="Фамилия" ng-model="myForm.sName" name="myForm.sName" required>
+                <span style="color:red;">*</span>
+            </div><br>
+
+            <div>
+                <label for="patr">Ваше отчество: </label>
+                <input type="text" id="patr" placeholder="Отчество" ng-model="myForm.patr" name="myForm.patr" required>
+                <span style="color:red;">*</span>
+            </div><br>
+
+            <h3>Введите Вашу дату рождения </h3>
+            <input type="date" ng-model="bd.value">
+
+            <h3>Ваш пол: </h3>
+
+            <div ng-repeat = "sub in Sex">
+                <label for="{{sub.idName}}">{{sub.name}}</label>
+                <input type="checkbox" id="{{sub.idName}}" ng-model="sub.checked" ng-click="updSelection($index, Sex)">
+                <br>
+            </div>
+
+            <h3>Ваше образование: </h3>
+
+            <div class="radio">
+                <div ng-repeat="ed in educations">
+                    <label for="{{ed.idName}}">{{ed.name}}</label>
+                    <input type="radio" id="{{ed.idName}}" name="education" ng-model="ed.checked">
+                </div>
+            </div>
+
+            <h3>На какую вакансию претендуете: </h3>
+            <select ng-model="vacSelected">
+                <option value="{{v.name}}" ng-repeat="v in vacancies | orderBy:'name'" >{{v.name}}</option>
+            </select>
+
+            <h3>Желаемая зарплата: </h3>
+            <div class="salary">
+                <input type="number" id="salary" name="myForm.salary" ng-model="myForm.salary" placeholder="Желаемая ЗП">MDL
+            </div><br>
+        </form>
+
+        <div class="buttons">
+            <button ng-if="myForm.salary&#62;4999 && myForm.salary&#60;20001" ng-disabled="myForm.$invalid" ng-click="showOutput()">Okay</button>
+            <button name="resetForm" ng-model="resetForm" ng-click="resetForm()">Cancel</button>
+        </div><br>
+        <div class="output" ng-show="showInfo">
+            <h2>Вывод:</h2>
+            Фамилия: {{myForm.fName}}<br>
+            Имя: {{myForm.sName}}<br>
+            Отчество: {{myForm.patr}}<br>
+            Дата рождения: {{bd.value | date:'medium'}}<br>
+            Вакансия: {{vacSelected}}<br>
+            Зарплата: {{myForm.salary}}
+        </div>
+    </div>
+</body>
+</html>
