@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div ng-app="myApp" ng-controller="myCtrl" class="app">
+    <div ng-app="myApp" ng-controller="myCtrl" class="app" ng-init = "age = ((today | date : 'yyyy') - (bd.value | date : 'yyyy'))">
         <form action="" method="post" ng-model="myForm" name="myForm">
             <h2>Заполните форму:</h2>
             <div>
@@ -62,7 +62,8 @@
         </form>
 
         <div class="buttons">
-            <button ng-if="myForm.salary&#62;4999 && myForm.salary&#60;20001" ng-disabled="myForm.$invalid" ng-click="showOutput()">Okay</button>
+            <button ng-if="myForm.salary &#62; 4999 && myForm.salary &#60; 20001 && age &#62; 18 && age &#60; 70"
+             ng-disabled="myForm.$invalid" ng-click="showOutput()">Okay</button>
             <button name="resetForm" ng-model="resetForm" ng-click="resetForm()">Cancel</button>
         </div><br>
         <div class="output" ng-show="showInfo">
@@ -70,7 +71,8 @@
             Фамилия: {{myForm.fName}}<br>
             Имя: {{myForm.sName}}<br>
             Отчество: {{myForm.patr}}<br>
-            Дата рождения: {{bd.value | date:'medium'}}<br>
+            Дата рождения: {{bd.value | date:'dd.MM.yyyy'}}<br>
+            Ваш возраст: {{age = (today | date : "yyyy") - (bd.value | date : "yyyy")}}<br>
             Вакансия: {{vacSelected}}<br>
             Зарплата: {{myForm.salary}}
         </div>

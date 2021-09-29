@@ -1,5 +1,7 @@
 var app = angular.module("myApp", [])
     .controller("myCtrl", function($scope){
+        $scope.today = new Date();
+
         //Sex
         $scope.Sex = [{
             idName: "male",
