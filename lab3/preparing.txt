@@ -1,0 +1,3 @@
+* Установить NodeJs
+* Установить Angular: 
+(npm install @angular/cli -g)

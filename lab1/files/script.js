@@ -38,7 +38,6 @@ var app = angular.module("myApp", [])
                 checked: false
             }
         ]
-
         //Vacancies
         $scope.vacancies = [
             {name: "Junior HTML/CSS Front-End Developer"},
@@ -47,7 +46,6 @@ var app = angular.module("myApp", [])
             {name: "Middle C++ Developer"},
             {name: "Junior Python Developer"},
         ];
-
         //Reset form
         $scope.resetForm = function(){
             $scope.myForm = {};
@@ -59,7 +57,5 @@ var app = angular.module("myApp", [])
             });
         }
         //Show output
-        $scope.showOutput = function(){
-            $scope.showInfo = true;
-        }
+        $scope.showOutput = function(){ $scope.showInfo = true; }
     })

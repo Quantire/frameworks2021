@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lab3 t1</title>
+    <title>lab1</title>
     <script src="angularJs.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div ng-app="myApp" ng-controller="myCtrl" class="app" ng-init = "age = ((today | date : 'yyyy') - (bd.value | date : 'yyyy'))">
+    <div ng-app="myApp" ng-controller="myCtrl" class="app">
         <form action="" method="post" ng-model="myForm" name="myForm">
             <h2>Заполните форму:</h2>
             <div>
@@ -73,6 +73,7 @@
             Отчество: {{myForm.patr}}<br>
             Дата рождения: {{bd.value | date:'dd.MM.yyyy'}}<br>
             Ваш возраст: {{age = (today | date : "yyyy") - (bd.value | date : "yyyy")}}<br>
+            {{today | date : "yyyy"}}
             Вакансия: {{vacSelected}}<br>
             Зарплата: {{myForm.salary}}
         </div>

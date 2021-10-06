@@ -37,7 +37,8 @@
             <td>{{x.fName}}</td>
             <td>{{x.patr}}</td>
             <td>{{x.note}}</td>
-            <td><input type="checkbox" ng-model="x.rem" ng-if="x.note &#60; 5"><input type="checkbox" ng-model="x.rem" ng-if="x.note &#62; 5" ng-disabled="x.note &#62; 4"></td>
+            <td><input type="checkbox" ng-model="x.rem" ng-if="x.note &#60; 5">
+                <input type="checkbox" ng-model="x.rem" ng-if="x.note &#62; 4" ng-disabled="x.note &#62; 4"></td>
         </tr>
     </table>
     
